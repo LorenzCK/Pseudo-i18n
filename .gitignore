@@ -1,0 +1,6 @@
+bin/*
+src/obj/*
+src/bin/*
+*.csproj.user
+*/.vs/*
+src/packages/*
