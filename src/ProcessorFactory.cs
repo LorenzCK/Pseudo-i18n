@@ -12,7 +12,7 @@ namespace PseudoInternationalization {
         private static readonly Dictionary<string, Type> _extensionMap = new Dictionary<string, Type> {
             { ".resx", typeof(ResxProcessor) },
             { ".xml", typeof(AndroidProcessor) },
-            { ".strings", typeof(StringSplitOptions) }
+            { ".strings", typeof(StringsProcessor) }
         };
 
         public bool IsSupported(string path) => _extensionMap.ContainsKey(Path.GetExtension(path));
