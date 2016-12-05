@@ -68,7 +68,7 @@ namespace PseudoInternationalization {
                 return 1;
             }
 
-            Console.ReadKey();
+            Console.WriteLine("Done.");
 
             return 0;
         }
