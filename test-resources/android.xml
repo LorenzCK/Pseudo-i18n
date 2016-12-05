@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string formatted="false" name="simple">This is a simple string</string>
+  <string formatted="false" name="html">String 1&lt;br /&gt;String 2&lt;br /&gt;&lt;b&gt;String 3&lt;/b&gt;&lt;br /&gt;String 4&lt;br /&gt;String 5</string>
+  <string formatted="false" name="quoted">This is a "quoted" string</string>
+</resources>
