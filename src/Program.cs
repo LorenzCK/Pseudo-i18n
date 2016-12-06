@@ -22,7 +22,6 @@ namespace PseudoInternationalization {
 
             p.Setup<List<string>>('i', "input")
                 .Callback(files => Input = files)
-                .Required()
                 .WithDescription("Paths to input directories or files");
 
             p.Setup<bool>("overwrite")
@@ -48,18 +47,12 @@ namespace PseudoInternationalization {
                     Console.Error.WriteLine(result.ErrorText);
                     return 1;
                 }
-                if (!Directory.CreateDirectory(Output).Exists) {
-                    Console.Error.WriteLine("Error: output directory does not exist.");
-                    return 1;
+                
+                if(Input.Any()) {
+                    return ProcessInput();
                 }
-
-                var factory = new ProcessorFactory();
-                var source = new Source(factory, Input);
-                foreach (var file in source.GetFiles()) {
-                    Console.WriteLine("Processing {0}... ", Path.GetFileName(file));
-
-                    var proc = factory.GetProcessor(file);
-                    proc.Process(file);
+                else {
+                    return ProcessStandardInput();
                 }
             }
             catch(Exception ex) {
@@ -71,6 +64,36 @@ namespace PseudoInternationalization {
             Console.WriteLine("Done.");
 
             return 0;
+        }
+
+        private static int ProcessInput() {
+            if (!Directory.CreateDirectory(Output).Exists) {
+                Console.Error.WriteLine("Error: output directory does not exist.");
+                return 1;
+            }
+
+            var factory = new ProcessorFactory();
+            var source = new Source(factory, Input);
+            foreach (var file in source.GetFiles()) {
+                Console.WriteLine("Processing {0}... ", Path.GetFileName(file));
+
+                var proc = factory.GetProcessor(file);
+                proc.Process(file);
+            }
+
+            return 0;
+        }
+
+        private static int ProcessStandardInput() {
+            Console.OutputEncoding = Encoding.UTF8;
+
+            while (true) {
+                var line = Console.ReadLine();
+                if (line == null)
+                    return 0;
+
+                Console.WriteLine(Translator.ConvertToFakeInternationalized(line));
+            }
         }
 
         private static void PrintHelp(string text) {

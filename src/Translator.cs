@@ -19,32 +19,33 @@ namespace PseudoInternationalization {
         /// <param name="inputString">The string to use as a base.</param>
         /// <returns>A longer and twiddled string.</returns>
         public static string ConvertToFakeInternationalized(string inputString) {
-            //check if the input string is a http or https link... if it is, do not localize
+            // If the input string contains a http or https link do not localize
+            // TODO: skip links only, not entire string
             if (inputString.Contains("http://") || inputString.Contains("https://")) {
                 return inputString;
             }
             
             // Calculate the extra space necessary for pseudo
-            // internationalization.  The rules, according to "Developing
+            // internationalization. The rules, according to "Developing
             // International Software" is that < 10  characters you should grow
             // by 400% while >= 10 characters should grow by 30%.
-            int OrigLen = inputString.Length;
-            int PseudoLen = 0;
-            if (OrigLen < 10) {
-                PseudoLen = (OrigLen * 4) + OrigLen;
+            int origLen = inputString.Length;
+            int pseudoLen = 0;
+            if (origLen < 10) {
+                pseudoLen = (origLen * 4) + origLen;
             }
             else {
-                PseudoLen = ((int)(OrigLen * 0.3)) + OrigLen;
+                pseudoLen = ((int)(origLen * 0.3)) + origLen;
             }
 
-            var sb = new StringBuilder(PseudoLen);
+            var sb = new StringBuilder(pseudoLen);
 
             // The pseudo string will always start with a "[" and end
             // with a "]" so you can tell if strings are not built
             // correctly in the UI.
             sb.Append("[");
 
-            // TODO: add support for multiple nested braces
+            // TODO: add support for multiple nested braces or other symbols
             bool waitingForEndBrace = false;
             bool waitingForGreaterThan = false;
             foreach (char currChar in inputString) {
@@ -147,7 +148,6 @@ namespace PseudoInternationalization {
                         sb.Append('Ż');
                         break;
 
-
                     case 'a':
                         sb.Append('ä');
                         break;
@@ -233,20 +233,20 @@ namespace PseudoInternationalization {
             }
 
             // Poke on extra text to fill out the string.
-            const String PadStr = " !!!";
-            int PadCount = (PseudoLen - OrigLen - 2) / PadStr.Length;
-            if (PadCount < 2) {
-                PadCount = 2;
+            const string padStr = " !!!";
+            int padCount = (pseudoLen - origLen - 2) / padStr.Length;
+            if (padCount < 2) {
+                padCount = 2;
             }
 
-            for (int x = 0; x < PadCount; x++) {
-                sb.Append(PadStr);
+            for (int x = 0; x < padCount; x++) {
+                sb.Append(padStr);
             }
 
             // Pop on the trailing "]"
             sb.Append("]");
 
-            return (sb.ToString());
+            return sb.ToString();
         }
 
     }
