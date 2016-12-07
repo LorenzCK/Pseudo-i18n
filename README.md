@@ -25,7 +25,7 @@ If no list of files is provided, the program takes any text on its standard inpu
 
 String translation rules are defined on the basis of [Scott Hanselman's Pseudoizer](https://github.com/shanselman/Psuedoizer):
 
-* Strings shorten than 10 characters grow by 400% in length,
+* Strings shorter than 10 characters grow by 400% in length,
 * Longer strings grow by 30%.
 * Strings start with ```[``` and end with ```]```, to clearly mark their limits and show if they are clipped in UI.
 * Characters between braces and brackets (```<>``` and ```{}```) are skipped.
