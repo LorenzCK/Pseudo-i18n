@@ -1,6 +1,6 @@
 # Pseudo-i18n #
 
-Pseudo-internationalization utility for multiplatform resource files.
+Pseudo-internationalization utility for multiplatform resource files. Get the [latest compiled version](https://github.com/LorenzCK/Pseudo-i18n/releases/latest).
 
 Based on John Robbin's **Pseudoizer** and [Scott Hanselman's implementation](http://www.hanselman.com/blog/PsuedoInternationalizationAndYourASPNETApplication.aspx).
 
