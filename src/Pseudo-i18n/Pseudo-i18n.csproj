@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.0</TargetFramework>
+    <RootNamespace>PseudoInternationalization</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/LorenzCK/Pseudo-i18n</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/LorenzCK/Pseudo-i18n/blob/master/LICENSE</PackageLicenseUrl>
+    <Authors>LorenzCK</Authors>
+    <Description>Simple pseudo-internationalization utility library: allows you to convert any latin alphabet string to a pseudo-language in order to test whether your application is localization-ready. The pseudo-strings respect links, tags, and other markup.
+A command-line utility that converts resource files is available from the library’s Github page.
+Based on John Robbin’s Pseudoizer and Scott Hanselman’s implementation.</Description>
+    <PackageTags>i18n, internationalization, pseudo-language, pseudo-internationalization, strings</PackageTags>
+    <PackageReleaseNotes>First release.</PackageReleaseNotes>
+    <Company />
+  </PropertyGroup>
+
+</Project>

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace PseudoInternationalization {
 
-    static class Translator {
+    public static class Translator {
 
         /// <summary>
-        /// Converts a string to a pseudo-internationized string.
+        /// Converts a string to a pseudo-internationalized string.
         /// </summary>
         /// <remarks>
-        /// Primarily for latin based languages.  This will need updating to
-        /// work with Eastern languages.
+        /// Primarily for latin based languages.
+        /// This will need updating to work with Eastern languages.
         /// Taken from: https://github.com/shanselman/Psuedoizer
         /// </remarks>
         /// <param name="inputString">The string to use as a base.</param>
@@ -27,7 +27,7 @@ namespace PseudoInternationalization {
             
             // Calculate the extra space necessary for pseudo
             // internationalization. The rules, according to "Developing
-            // International Software" is that < 10  characters you should grow
+            // International Software" is that < 10 characters you should grow
             // by 400% while >= 10 characters should grow by 30%.
             int origLen = inputString.Length;
             int pseudoLen = 0;
