@@ -1,12 +1,18 @@
-# Pseudo-i18n #
+# Pseudo-i18n
 
-Pseudo-internationalization utility for multiplatform resource files. Get the [latest compiled version](https://github.com/LorenzCK/Pseudo-i18n/releases/latest).
+Pseudo-internationalization utility for multiplatform resource files.
+
+Get the [latest compiled version](https://github.com/LorenzCK/Pseudo-i18n/releases/latest) of the command-line resource translation utility.
+
+Also available as a stand-alone .NET&nbsp;Standard [NuGet package](https://www.nuget.org/packages/Pseudo-i18n/) for runtime string pseudo-translation.
+
+[![NuGet](https://img.shields.io/nuget/v/Pseudo-i18n.svg)](https://www.nuget.org/packages/Pseudo-i18n/)
 
 Based on John Robbin's **Pseudoizer** and [Scott Hanselman's implementation](http://www.hanselman.com/blog/PsuedoInternationalizationAndYourASPNETApplication.aspx).
 
-## Usage ##
+## Usage
 
-```
+```bash
 Pseudo-i18n.exe [-i <file>...] [{-o <output-dir>|--overwrite}]
 ```
 
@@ -21,7 +27,7 @@ If ```--overwrite``` is set, the original input files are overwritten instead.
 
 If no list of files is provided, the program takes any text on its standard input and prints out the converted version to standard output.
 
-## Internationalization ##
+## Internationalization
 
 String translation rules are defined on the basis of [Scott Hanselman's Pseudoizer](https://github.com/shanselman/Psuedoizer):
 
